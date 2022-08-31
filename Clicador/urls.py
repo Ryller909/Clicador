@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Clicker.views import index
+from Clicker.views import index, save
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index)
+    path('', index, name="index"),
+    path('save', save),
 ]

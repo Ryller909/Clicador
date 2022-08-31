@@ -1,20 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from Clicker.form import PlayerForm
+from Clicker.form import MatchForm, PlayerForm
 from Clicker.models import Player
 
 # Create your views here.
 
 def index(request):
     pack = {"player_id": None, "form": None}
-    if request.method == 'POST':
+    if request.method == "POST":
         form = PlayerForm(request.POST)
         if form.is_valid():
             form.save()
-        players = Player.objects.all()
-        player_id = 0
-        pack["player_id"] = player_id
+        pack["player_name"] = form["name"]
     else:
         form = PlayerForm()
         pack["form"] = form
     return render(request, "index.html", pack)
+
+def save(request):
+    if request.method == "POST" :
+        form = MatchForm(request.POST)
+        if form.is_valid():
+            form.save()
+        print(form["player_id"])
+        print(form["score"])
+    return redirect("index")
