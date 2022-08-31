@@ -134,17 +134,48 @@
                 {% csrf_token %}
                 {{form}}
                 <button>Jogar</button>
-
             </form>
         {% else %}
             <h1>
-                Cronometro: 5.00s
+                Cronometro: <span id="sec"></span>:<span id="milisec"></span>
             </h1>
             <h2>
-                Clicks: xx
+                Clicks: <span id="clicks"></span>
             </h2>
-            <button>CLIQUE!</button>
+            <button onclick="clk()">CLIQUE!</button>
         {% endif %}
     </div>
+
+
+    <script>
+
+        var seconds = document.getElementById("sec");
+        var miliseconds = document.getElementById("milisec");
+        var countClicks = document.getElementById("clicks");
+
+
+
+        var init = false;
+        var mili = 10000;
+        var sec = 0;
+        var clicks = 0;
+        function clk(){
+            clicks ++;
+            countClicks.innerText = clicks;
+
+            if(!init){
+                init = true;
+                setInterval(plusMili, 10);
+            }
+        }
+
+        function plusMili(){
+            mili -= 10;
+            sec = Math.floor(mili / 1000);
+            miliseconds.innerText = mili.toString().substring(1, 3);
+            seconds.innerText = sec;
+        }
+
+    </script>
 </body>
 </html>
