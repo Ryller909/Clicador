@@ -5,10 +5,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLIQUE!</title>
-</head>
-<body style="width: 100%;height: 100%;margin: 0px;position: absolute;background-color: black;">
-    <div>
 
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px;
+            position: absolute;
+            background-color: red;
+        }
+        table {
+            display: block;
+            height: 320px;
+            width: 100%;
+            overflow-y: scroll;
+        }
+        td {
+            width: 100%;
+        }
+        .main{
+            width: 40%;
+            justify-content: center;
+            align-items: center;
+        }
+        td, button, input{
+            font-size: 18pt;
+        }
+        button {
+            width: 100%;
+            height: 100px;
+        }
+        input{
+            border: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main">
+
+        {% if form is not None %}
+            <table border="2">
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>Pontos</td>
+                </tr>
+            </table>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form}}
+                <button>Jogar</button>
+
+            </form>
+        {% else %}
+            <h1>
+                Cronometro: 5.00s
+            </h1>
+            <h2>
+                Clicks: xx
+            </h2>
+            <button>CLIQUE!</button>
+        {% endif %}
     </div>
 </body>
 </html>
